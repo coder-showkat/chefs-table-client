@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-image: url("./bg.webp");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+}
+
+#root {
+  height: 100vh;
+  background-color: rgba(47, 29, 1, 0.1);
+  backdrop-filter: blur(20px);
+  --webkit-backdrop-filter: blur(20px);
+}
