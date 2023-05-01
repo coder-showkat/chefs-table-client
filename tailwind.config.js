@@ -15,11 +15,11 @@ export default {
           primary: "#C25100",
           secondary: "#f6d860",
           accent: "#37cdbe",
-          neutral: "#a6adbb",
+          neutral: "#3d4451",
           "base-100": "#0C0700",
         },
       },
+      
     ],
   },
 }
-

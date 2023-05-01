@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <div>
-      <button className="btn btn-primary">Submit</button>
+      <h1 className="text-3xl text-center font-bold underline">Hello world!</h1>
     </div>
   );
 };
