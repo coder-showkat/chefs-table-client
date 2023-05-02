@@ -6,16 +6,21 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      "script": ["Dancing Script", "cursive"],
+      "playfair": ["Playfair Display", "serif"],
+      "open-sans": ["Open Sans", "sans-serif"]
+    }
   },
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
         mytheme: {
-          primary: "#C25100",
-          secondary: "#f6d860",
-          accent: "#37cdbe",
-          neutral: "#3d4451",
+          primary: "#EA8115",
+          secondary: "#d1c7ba",
+          accent: "#7A8D1B",
+          neutral: "#dacfc0",
           "base-100": "#0C0700",
         },
       },
