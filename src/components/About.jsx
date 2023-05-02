@@ -46,6 +46,7 @@ const About = () => {
           other food enthusiasts, and discover new flavors and techniques from
           top chefs around the world.
         </p>
+        <button className="btn md:btn-lg btn-primary">Join Chef's Table</button>
       </div>
     </div>
   );
