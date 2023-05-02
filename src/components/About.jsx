@@ -19,7 +19,9 @@ const About = () => {
       </div>
 
       <div className="order-1 lg:order-2 lg:col-span-3 space-y-6">
-        <h3 className="font-script text-3xl text-white">About Chef's Table</h3>
+        <h3 className="font-script text-3xl text-primary">
+          About Chef's Table
+        </h3>
         <p>
           Welcome to Chef's Table, the ultimate destination for food enthusiasts
           who are passionate about discovering new flavors and culinary
