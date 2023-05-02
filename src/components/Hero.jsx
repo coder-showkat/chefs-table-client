@@ -17,12 +17,11 @@ const Hero = () => {
 
       {/* image */}
       <div className="w-1/2 absolute top-0 right-0 h-full">
-        <div className="absolute h-full w-full rounded-[4rem] bg-[#8c4c02]/20 z-10"></div>
+        <div className="absolute h-full w-full rounded-[4rem] bg-[#8c4c02]/10 z-10"></div>
         <img
           src={banner}
           alt=""
           className="absolute h-full w-full rounded-[4rem] object-cover"
-          style={{ filter: "drop-shadow(0px 0px 2px black)" }}
         />
       </div>
     </div>
