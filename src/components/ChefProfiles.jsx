@@ -14,11 +14,11 @@ const ChefProfiles = () => {
       .then((data) => setChefData(data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(chefData);
+
   return (
     <div className="my-20 py-8 space-y-6">
       <h3 className="font-script text-3xl text-primary mb-6">Chef Profiles</h3>
-      <p className="mb-8 max-w-xl">
+      <p className="mb-8 max-w-xl md:text-lg">
         Discover the top chefs featured on Chef's Table, each with a unique
         culinary perspective and signature dishes. Browse their profiles to
         learn more about their recipe ingredients and cooking method.

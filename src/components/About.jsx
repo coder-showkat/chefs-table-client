@@ -22,7 +22,7 @@ const About = () => {
         <h3 className="font-script text-3xl text-primary">
           About Chef's Table
         </h3>
-        <p>
+        <p className="md:text-lg">
           Welcome to Chef's Table, the ultimate destination for food enthusiasts
           who are passionate about discovering new flavors and culinary
           techniques. Our website is a curated collection of recipes from top

@@ -9,20 +9,15 @@ const Hero = () => {
         <h1 className="text-white font-playfair text-4xl sm:text-5xl lg:text-7xl 2xl:text-8xl">
           Explore the <br /> World of Culinary Delights
         </h1>
-        <h4 className="md:text-xl">
+        <h4 className="md:text-lg">
           Discover the Best Recipes and Meet Renowned Chefs
         </h4>
         <button className="btn md:btn-lg btn-primary w-fit">Get Started</button>
       </div>
 
       {/* image */}
-      <div className="w-1/2 absolute top-0 right-0 h-full">
-        <div className="absolute h-full w-full rounded-[4rem] bg-[#8c4c02]/10 z-10"></div>
-        <img
-          src={banner}
-          alt=""
-          className="absolute h-full w-full rounded-[4rem] object-cover"
-        />
+      <div className="w-1/2 absolute top-0 right-0 h-full rounded-[20%] overflow-hidden">
+        <img src={banner} alt="" className="h-full w-full object-cover" />
       </div>
     </div>
   );
