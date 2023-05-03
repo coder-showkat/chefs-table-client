@@ -3,17 +3,10 @@
 @tailwind utilities;
 
 body {
-  background-image: url("./bg.webp");
+  background-image: url("https://res.cloudinary.com/dsko6s0ll/image/upload/v1683133707/chef%27s%20table/bg_spq3ff.png");
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: center;
   background-size: cover;
-}
-
-#root {
-  min-height: 100vh;
-  background-color: rgba(47, 29, 1, 0.2);
-  backdrop-filter: blur(20px);
-  --webkit-backdrop-filter: blur(20px);
 }
 
 body {

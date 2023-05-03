@@ -27,7 +27,7 @@ const TestimonialCard = ({ testimonial }) => {
         <img
           src={foodImage}
           alt=""
-          className="w-full aspect-[18/20] object-cover rounded-[20%]"
+          className="w-full aspect-[18/20] object-cover rounded"
         />
       </div>
     </div>

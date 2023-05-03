@@ -5,11 +5,11 @@ import Navbar from "../components/Navbar";
 
 const Main = () => {
   return (
-    <>
+    <div className="bg-[#2f1d0133] backdrop-blur-lg">
       <Navbar />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 

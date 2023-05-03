@@ -9,12 +9,12 @@ const About = () => {
         <img
           src={chef2}
           alt=""
-          className="rounded-[3rem] w-3/4 h-full object-cover absolute right-0"
+          className="rounded w-3/4 h-full object-cover absolute right-0"
         />
         <img
           src={food}
           alt=""
-          className="rounded-[2rem] absolute z-10 top-1/2 left-0 w-52 -rotate-12"
+          className="rounded-full aspect-square object-cover border-2 absolute z-10 top-1/2 left-0 w-52"
         />
       </div>
 
