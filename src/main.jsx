@@ -12,10 +12,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <ToastContainer
       position="top-center"
       autoClose={5000}
-      hideProgressBar
       newestOnTop={false}
       closeOnClick
-      rtl
       pauseOnFocusLoss={false}
       draggable
       pauseOnHover
