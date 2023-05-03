@@ -3,7 +3,7 @@ import banner from "../assets/banner.jpg";
 
 const Hero = () => {
   return (
-    <div className="relative aspect-[19/10]">
+    <div className="relative aspect-[19/10] container mx-auto px-4 sm:px-8 lg:px-16">
       {/* text */}
       <div className="max-w-xl 2xl:max-w-3xl w-3/4 h-full relative z-20 flex flex-col justify-center space-y-4 md:space-y-8">
         <h1 className="text-white font-playfair text-4xl sm:text-5xl lg:text-7xl 2xl:text-8xl">

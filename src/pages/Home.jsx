@@ -6,11 +6,15 @@ import Testimonials from "../components/Testimonials";
 
 const Home = () => {
   return (
-    <div className="container mx-auto px-4 sm:px-8 lg:px-16 pt-28 pb-12">
-      <Hero />
-      <About />
-      <ChefProfiles />
-      <Testimonials />
+    <div className="pb-12">
+      <div className="pt-28 bg-gradient-to-b from-black/30 to-transparent">
+        <Hero />
+      </div>
+      <div className="container mx-auto px-4 sm:px-8 lg:px-16">
+        <About />
+        <ChefProfiles />
+        <Testimonials />
+      </div>
     </div>
   );
 };
