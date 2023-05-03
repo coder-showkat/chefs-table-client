@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { GiForkKnifeSpoon } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { HiBars3BottomRight } from "react-icons/hi2";
+import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../providers/AuthProvider";
 
@@ -23,13 +24,26 @@ const Navbar = () => {
           </h2>
         </Link>
         <div
-          className={`flex items-center space-x-6 font-medium 
-      }`}
+          className="flex items-center space-x-6 font-medium 
+      "
         >
-          <Link to="/">Home</Link>
-          <Link>Blog</Link>
-          <Link>Contact</Link>
-          {user ? (
+          {/* for large device */}
+          <div className="hidden md:flex items-center space-x-6">
+            <NavLink to="/" className="nav-link">
+              Home
+            </NavLink>
+            <NavLink to="/blog" className="nav-link">
+              Blog
+            </NavLink>
+            {!user && (
+              <NavLink to="/login" className="nav-link">
+                Login
+              </NavLink>
+            )}
+          </div>
+
+          {/* if the user logged in profile photo will be visible */}
+          {user && (
             <div className="dropdown dropdown-end">
               <label
                 tabIndex={0}
@@ -44,21 +58,40 @@ const Navbar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu p-2 shadow-md shadow-primary/40 bg-base-100 rounded-box w-52"
+                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li onClick={logoutHandler}>
                   <a>Log Out</a>
                 </li>
               </ul>
             </div>
-          ) : (
-            <Link
-              to="/login"
-              className="bg-primary px-4 py-2 rounded text-black"
-            >
-              Login
-            </Link>
           )}
+
+          {/* for small device */}
+          <div className="md:hidden dropdown dropdown-end">
+            <label
+              tabIndex={0}
+              className="btn btn-sm hover:bg-inherit btn-ghost btn-circle"
+            >
+              <HiBars3BottomRight className="text-2xl" />
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/blog">Blog</NavLink>
+              </li>
+              {!user && (
+                <li>
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
       </nav>
     </div>
