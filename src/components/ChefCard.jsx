@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BiLike } from "react-icons/bi";
+import LazyLoad from "react-lazy-load";
 import { useNavigate } from "react-router-dom";
 
 const ChefCard = ({ chefInfo }) => {
@@ -35,7 +36,9 @@ const ChefCard = ({ chefInfo }) => {
             </button>
           </div>
         </div>
-        <img src={image} alt={name} className="w-full h-full object-cover" />
+        <LazyLoad height={"100%"} width={"100%"} offset={300}>
+          <img src={image} alt={name} className="w-full h-full object-cover" />
+        </LazyLoad>
       </div>
       <h1
         className={`text-3xl font-playfair text-white text-center duration-500 ${

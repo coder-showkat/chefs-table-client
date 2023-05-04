@@ -1,5 +1,6 @@
 import moment from "moment/moment";
 import React from "react";
+import LazyLoad from "react-lazy-load";
 
 const TestimonialCard = ({ testimonial }) => {
   const { foodImage, author, authorImage, comment, date } = testimonial;
@@ -24,11 +25,13 @@ const TestimonialCard = ({ testimonial }) => {
         </div>
       </div>
       <div>
-        <img
-          src={foodImage}
-          alt=""
-          className="w-full aspect-[18/20] object-cover rounded"
-        />
+        <LazyLoad offset={300}>
+          <img
+            src={foodImage}
+            alt=""
+            className="w-full aspect-[18/20] object-cover rounded"
+          />
+        </LazyLoad>
       </div>
     </div>
   );

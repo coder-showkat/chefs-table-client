@@ -24,7 +24,7 @@ const Navbar = () => {
           </h2>
         </Link>
         <div
-          className="flex items-center space-x-6 font-medium 
+          className="flex items-center space-x-3 md:space-x-6 font-medium 
       "
         >
           {/* for large device */}
