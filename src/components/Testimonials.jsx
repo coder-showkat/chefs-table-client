@@ -39,7 +39,6 @@ const Testimonials = () => {
         spaceBetween={10}
         grabCursor={true}
         slidesPerView={1}
-        loop={true}
         navigation={{
           nextEl: ".next-btn",
           prevEl: ".prev-btn",
