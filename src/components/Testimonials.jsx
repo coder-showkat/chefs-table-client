@@ -11,7 +11,9 @@ const Testimonials = () => {
   const [testimonialsData, setTestimonialsData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/chefs-table/testimonials")
+    fetch(
+      "https://chefs-table-server-dun.vercel.app/api/chefs-table/testimonials"
+    )
       .then((res) => res.json())
       .then((data) => setTestimonialsData(data))
       .catch((err) => console.error(err));

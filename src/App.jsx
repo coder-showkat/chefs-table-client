@@ -35,12 +35,15 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/api/recipes/${params.chef}`),
+          fetch(
+            `https://chefs-table-server-dun.vercel.app/api/recipes/${params.chef}`
+          ),
       },
       {
         path: "/blog",
         element: <Blogs />,
-        loader: () => fetch("http://localhost:5001/api/blogs"),
+        loader: () =>
+          fetch("https://chefs-table-server-dun.vercel.app/api/blogs"),
       },
     ],
   },

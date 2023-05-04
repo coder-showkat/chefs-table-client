@@ -9,7 +9,7 @@ import ChefCard from "./ChefCard";
 const ChefProfiles = () => {
   const [chefData, setChefData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/api/chef")
+    fetch("https://chefs-table-server-dun.vercel.app/api/chef")
       .then((res) => res.json())
       .then((data) => setChefData(data))
       .catch((err) => console.log(err));
