@@ -5,7 +5,7 @@ const RecipeCard = ({ recipe, scale }) => {
 
   return (
     <div
-      className={`bg-base-200 py-12 px-6 rounded recipe-card duration-100 origin-top scale-${scale}`}
+      className={`bg-base-200 py-12 px-6 rounded recipe-card duration-300 origin-top scale-${scale}`}
     >
       <h1 className="rounded p-4 w-fit mx-auto bg-base-100/80 text-base-content text-2xl font-playfair mb-8">
         {title}

@@ -97,13 +97,15 @@ const Recipes = () => {
                     setTimeout(() => {
                       setSelectedRecipe(recipe.id);
                       setScale(100);
-                    }, 500);
+                    }, 600);
                   }
                 }}
                 className="card w-full bg-gradient-to-br to-white/10 from-base-100 hover:to-base-100 hover:from-white/10 shadow-xl shadow-primary/10"
               >
                 <div className="card-body">
-                  <h2 className="card-title font-playfair">{recipe.title}</h2>
+                  <h2 className="card-title font-playfair cursor-pointer">
+                    {recipe.title}
+                  </h2>
                   <p className="opacity-60">
                     Number of ingredients: {recipe.ingredients.length}
                   </p>
