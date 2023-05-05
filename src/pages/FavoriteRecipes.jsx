@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 import { FavoriteRecipeContext } from "../providers/FavoriteRecipeProvider";
 
 const FavoriteRecipes = () => {
@@ -61,9 +62,13 @@ const FavoriteRecipes = () => {
                 </div>
                 <div>
                   <button
-                    onClick={() =>
-                      removeFromFavorite(item.chefId, item.recipeId)
-                    }
+                    title="Remove from favorite"
+                    onClick={() => {
+                      removeFromFavorite(item.chefId, item.recipeId);
+                      toast.warn(
+                        `${item.recipeName} is removed from your favorite`
+                      );
+                    }}
                     className="text-xl text-red-500"
                   >
                     <MdDeleteOutline />

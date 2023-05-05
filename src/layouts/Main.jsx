@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
@@ -8,6 +8,7 @@ const Main = () => {
     <div className="bg-[#2f1d0133] backdrop-blur-lg">
       <Navbar />
       <Outlet />
+      <ScrollRestoration />
       <Footer />
     </div>
   );

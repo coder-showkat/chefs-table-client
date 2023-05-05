@@ -17,20 +17,18 @@ const RecipeCard = ({
   const { imageRef, shouldLoadImage } = useLazyImage();
   const { favoriteRecipe, addToFavorite } = useContext(FavoriteRecipeContext);
   return (
-    <div
-      onClick={() => {
-        if (recipe.id !== selectedRecipe) {
-          setScale(0);
-          setTimeout(() => {
-            setSelectedRecipe(recipe.id);
-            setScale(100);
-          }, 600);
-        }
-      }}
-      className="card w-full bg-gradient-to-br to-white/10 from-base-100 hover:to-base-100 hover:from-white/10 shadow-xl shadow-primary/10"
-    >
+    <div className="card w-full bg-gradient-to-br to-white/10 from-base-100 hover:to-base-100 hover:from-white/10 shadow-xl shadow-primary/10">
       <div className="card-body">
         <img
+          onClick={() => {
+            if (recipe.id !== selectedRecipe) {
+              setScale(0);
+              setTimeout(() => {
+                setSelectedRecipe(recipe.id);
+                setScale(100);
+              }, 600);
+            }
+          }}
           ref={imageRef}
           src={shouldLoadImage ? recipe.img : spinnerImg}
           className="w-full aspect-square object-cover rounded-lg cursor-pointer"
