@@ -1,28 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BiChevronLeft, BiLike } from "react-icons/bi";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
-import { MdFavoriteBorder } from "react-icons/md";
-import { RiArrowDownSFill } from "react-icons/ri";
 import { useLoaderData } from "react-router-dom";
-import StarRatings from "react-star-ratings";
-import { toast } from "react-toastify";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
+import spinnerImg from "../../assets/Spinner.svg";
 import RecipeCard from "../../components/RecipeCard";
+import RecipePoster from "../../components/RecipePoster";
+import { useLazyImage } from "../../hooks/LazyImage";
+import { FavoriteRecipeContext } from "../../providers/FavoriteRecipeProvider";
 
 const Recipes = () => {
   const chefInfo = useLoaderData();
+  const { favoriteRecipe, addToFavorite } = useContext(FavoriteRecipeContext);
   const { name, bio, experience, image, recipes, likes } = chefInfo;
   const [scale, setScale] = useState(100);
   const [selectedRecipe, setSelectedRecipe] = useState(1);
+  const { imageRef, shouldLoadImage } = useLazyImage();
 
   return (
     <div className="container mx-auto px-4 sm:px-8 lg:px-16 pt-28 pb-16">
       <div className="grid grid-cols-1 md:grid-cols-2 aspect-[19/8] md:text-lg gap-8 mb-16">
         <img
-          src={image}
+          ref={imageRef}
+          src={shouldLoadImage ? image : spinnerImg}
           alt=""
           className="w-full md:w-3/4 h-full object-cover rounded"
         />
@@ -90,61 +93,13 @@ const Recipes = () => {
         >
           {recipes.map((recipe) => (
             <SwiperSlide key={recipe.id}>
-              <div
-                onClick={() => {
-                  if (recipe.id !== selectedRecipe) {
-                    setScale(0);
-                    setTimeout(() => {
-                      setSelectedRecipe(recipe.id);
-                      setScale(100);
-                    }, 600);
-                  }
-                }}
-                className="card w-full bg-gradient-to-br to-white/10 from-base-100 hover:to-base-100 hover:from-white/10 shadow-xl shadow-primary/10"
-              >
-                <div className="card-body">
-                  <h2 className="card-title font-playfair cursor-pointer">
-                    {recipe.title}
-                  </h2>
-                  <p className="opacity-60">
-                    Number of ingredients: {recipe.ingredients.length}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <StarRatings
-                        rating={recipe.rating}
-                        starDimension="20px"
-                        starSpacing="3px"
-                        starRatedColor="#EA8115"
-                        starEmptyColor="grey"
-                      />
-                      <span className="ml-3 align-middle opacity-70">
-                        {recipe.rating}
-                      </span>
-                    </div>
-
-                    <MdFavoriteBorder
-                      onClick={(e) => {
-                        toast.success(
-                          `${recipe.title} is added to your favorite`
-                        );
-                        e.target.style.display = "none";
-                      }}
-                      title="Add to favorite"
-                      className="text-2xl text-red-500 cursor-pointer"
-                    />
-                  </div>
-                  <div className="card-actions justify-center relative">
-                    <span className="aspect-square absolute -bottom-[4.7rem]">
-                      <RiArrowDownSFill
-                        className={`text-7xl text-neutral/20 ${
-                          selectedRecipe === recipe.id ? "block" : "hidden"
-                        }`}
-                      />
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <RecipeCard
+                chefInfo={chefInfo}
+                recipe={recipe}
+                setScale={setScale}
+                selectedRecipe={selectedRecipe}
+                setSelectedRecipe={setSelectedRecipe}
+              />
             </SwiperSlide>
           ))}
 
@@ -161,7 +116,7 @@ const Recipes = () => {
           </div>
         </Swiper>
 
-        <RecipeCard
+        <RecipePoster
           recipe={recipes.find((recipe) => recipe.id === selectedRecipe)}
           scale={scale}
         />

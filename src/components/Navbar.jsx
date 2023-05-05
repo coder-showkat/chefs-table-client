@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { HiBars3BottomRight } from "react-icons/hi2";
+import { MdFavoriteBorder } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../providers/AuthProvider";
+import { FavoriteRecipeContext } from "../providers/FavoriteRecipeProvider";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
+  const { favoriteRecipe } = useContext(FavoriteRecipeContext);
 
   const logoutHandler = async () => {
     const result = await logoutUser();
@@ -40,6 +43,12 @@ const Navbar = () => {
                 Login
               </NavLink>
             )}
+            <NavLink to="/favorite-recipe" className="nav-link indicator">
+              <MdFavoriteBorder className="text-2xl" />
+              <span className="badge badge-sm indicator-item">
+                {favoriteRecipe.length}
+              </span>
+            </NavLink>
           </div>
 
           {/* if the user logged in profile photo will be visible */}
@@ -90,6 +99,9 @@ const Navbar = () => {
                   <NavLink to="/login">Login</NavLink>
                 </li>
               )}
+              <li>
+                <NavLink to="/favorite-recipe">Favorite</NavLink>
+              </li>
             </ul>
           </div>
         </div>

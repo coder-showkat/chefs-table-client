@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { BiLike } from "react-icons/bi";
-import LazyLoad from "react-lazy-load";
 import { useNavigate } from "react-router-dom";
+import loadingImg from "../assets/spinner.svg";
+import { useLazyImage } from "../hooks/LazyImage";
 
 const ChefCard = ({ chefInfo }) => {
   const [hovered, setHovered] = useState(false);
   const { id, name, image, experience, likes, recipes } = chefInfo;
+  const { imageRef, shouldLoadImage } = useLazyImage();
   const navigate = useNavigate();
 
   return (
@@ -36,9 +38,13 @@ const ChefCard = ({ chefInfo }) => {
             </button>
           </div>
         </div>
-        <LazyLoad height={"100%"} width={"100%"} offset={300}>
-          <img src={image} alt={name} className="w-full h-full object-cover" />
-        </LazyLoad>
+
+        <img
+          ref={imageRef}
+          src={shouldLoadImage ? image : loadingImg}
+          alt={name}
+          className="w-full h-full object-cover"
+        />
       </div>
       <h1
         className={`text-3xl font-playfair text-white text-center duration-500 ${

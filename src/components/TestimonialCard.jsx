@@ -1,9 +1,11 @@
 import moment from "moment/moment";
 import React from "react";
-import LazyLoad from "react-lazy-load";
+import spinnerImg from "../assets/spinner.svg";
+import { useLazyImage } from "../hooks/LazyImage";
 
 const TestimonialCard = ({ testimonial }) => {
   const { foodImage, author, authorImage, comment, date } = testimonial;
+  const { imageRef, shouldLoadImage } = useLazyImage();
   return (
     <div className="w-full grid grid-cols-3 gap-x-6 md:gap-x-12">
       <div className="col-span-2 space-y-4">
@@ -25,13 +27,12 @@ const TestimonialCard = ({ testimonial }) => {
         </div>
       </div>
       <div>
-        <LazyLoad offset={300}>
-          <img
-            src={foodImage}
-            alt=""
-            className="w-full aspect-[18/20] object-cover rounded"
-          />
-        </LazyLoad>
+        <img
+          ref={imageRef}
+          src={shouldLoadImage ? foodImage : spinnerImg}
+          alt=""
+          className="w-full aspect-[18/20] object-cover rounded"
+        />
       </div>
     </div>
   );

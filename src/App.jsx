@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import Main from "./layouts/Main";
 import Blogs from "./pages/Blogs";
+import FavoriteRecipes from "./pages/FavoriteRecipes";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
@@ -44,6 +45,12 @@ const router = createBrowserRouter([
         element: <Blogs />,
         loader: () =>
           fetch("https://chefs-table-server-dun.vercel.app/api/blogs"),
+      },
+      {
+        path: "/favorite-recipe",
+        element: <FavoriteRecipes />,
+        loader: () =>
+          fetch("https://chefs-table-server-dun.vercel.app/api/chef"),
       },
     ],
   },
