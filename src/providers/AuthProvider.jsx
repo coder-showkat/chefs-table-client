@@ -84,6 +84,22 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const updateProfileInfo = async (displayName, photoURL) => {
+    setLoading(true);
+    try {
+      await updateProfile(auth.currentUser, {
+        displayName,
+        photoURL,
+      });
+      setUser({ ...user, displayName, photoURL });
+      return { success: true, message: "Profile updated successfully" };
+    } catch (error) {
+      return { success: false, message: error.message };
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const logoutUser = async () => {
     setLoading(true);
     try {
@@ -103,6 +119,7 @@ const AuthProvider = ({ children }) => {
     loginUser,
     loginWithGoogle,
     loginWithGithub,
+    updateProfileInfo,
     logoutUser,
   };
   return (

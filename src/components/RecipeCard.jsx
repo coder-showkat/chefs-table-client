@@ -33,7 +33,7 @@ const RecipeCard = ({
         <img
           ref={imageRef}
           src={shouldLoadImage ? recipe.img : spinnerImg}
-          className="w-fit aspect-square object-cover rounded-lg cursor-pointer"
+          className="w-full aspect-square object-cover rounded-lg cursor-pointer"
         />
 
         <h2 className="card-title font-playfair">{recipe.title}</h2>

@@ -62,13 +62,16 @@ const Navbar = () => {
                 <img
                   src={user.photoURL}
                   alt={user.displayName}
-                  className="object-cover rounded-full"
+                  className="object-cover aspect-square rounded-full"
                 />
               </label>
               <ul
                 tabIndex={0}
                 className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
               >
+                <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
                 <li onClick={logoutHandler}>
                   <a>Log Out</a>
                 </li>

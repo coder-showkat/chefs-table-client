@@ -7,6 +7,7 @@ import FavoriteRecipes from "./pages/FavoriteRecipes";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
+import Profile from "./pages/PrivateRoute/Profile";
 import Recipes from "./pages/PrivateRoute/Recipes";
 import Register from "./pages/Register";
 
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/recipes/:chef",
