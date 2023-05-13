@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BiChevronLeft } from "react-icons/bi";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { Autoplay, Navigation } from "swiper";
@@ -6,15 +6,7 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ChefCard from "./ChefCard";
 
-const ChefProfiles = () => {
-  const [chefData, setChefData] = useState([]);
-  useEffect(() => {
-    fetch("https://chefs-table-server-dun.vercel.app/api/chef")
-      .then((res) => res.json())
-      .then((data) => setChefData(data))
-      .catch((err) => console.log(err));
-  }, []);
-
+const ChefProfiles = ({ chefData }) => {
   return (
     <div className="my-20 py-8 space-y-6">
       <h3 className="font-script text-3xl text-primary mb-6">Chef Profiles</h3>

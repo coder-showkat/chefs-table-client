@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BiChevronLeft } from "react-icons/bi";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { Autoplay, Navigation, Pagination } from "swiper";
@@ -7,18 +7,7 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import TestimonialCard from "./TestimonialCard";
 
-const Testimonials = () => {
-  const [testimonialsData, setTestimonialsData] = useState([]);
-
-  useEffect(() => {
-    fetch(
-      "https://chefs-table-server-dun.vercel.app/api/chefs-table/testimonials"
-    )
-      .then((res) => res.json())
-      .then((data) => setTestimonialsData(data))
-      .catch((err) => console.error(err));
-  }, []);
-
+const Testimonials = ({ testimonialsData }) => {
   return (
     <div className="my-20 py-8">
       <h3 className="font-script text-3xl text-primary mb-6">Testimonials</h3>
