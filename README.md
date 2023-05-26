@@ -10,7 +10,7 @@ Chef's Table is a website dedicated to showcasing the best chefs and their recip
 
 
 ## Live Link
-Hosted in Netlify -> [Chef's Table](https://chef-s-table-74f9e.web.app)
+Hosted in Firebase -> [Chef's Table](https://chef-s-table-74f9e.web.app)
 ## Technologies Used
 
 [Vite-React](https://vitejs.dev)
